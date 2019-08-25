@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>NMS Template - The Ultimate Multipurpose admin template</title>
+
+    <![endif]-->
+
+    <style type="text/css">
+        .err {
+            color: red;
+        }
+
+        .succes {
+            color: green;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<div layout:fragment="custom-content">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Add User</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+
+
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+
+
+        <div class="row" th:class="mm">
+            <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+                <div class="login-brand">
+                    Ngo System
+                </div>
+
+
+                <div class="card card-primary">
+                    <div class="card-header"><h4>Add New User</h4></div>
+                    <div class="card-body">
+
+                        <form action="#" th:object="${user}" th:action="@{/user/add}" th:method="POST"
+                              enctype="multipart/form-data">
+
+                            <div class="row">
+
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <label>Role Name</label>
+                                        <select th:field="*{roles}" multiple required>
+                                            <option th:each="role : ${user}" th:value="${user.id}">
+                                                <span th:text="${user.username}"></span>
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-12">
+                                    <label for="username">UserName</label>
+                                    <input id="username" type="text" th:field="*{username}" class="form-control"
+                                           name="username">
+                                </div>
+
+
+                                <div class="form-group col-12">
+                                    <label for="firstName">FirstName</label>
+                                    <input id="firstName" type="text" th:field="*{firstName}" class="form-control"
+                                           name="firstName">
+                                </div>
+
+
+                                <div class="form-group col-12">
+                                    <label for="lastName">LastName</label>
+                                    <input id="lastName" type="text" th:field="*{lastName}" class="form-control"
+                                           name="lastName">
+                                </div>
+
+
+                                <div class="form-group col-12">
+                                    <label for="birthDate">BirthDate</label>
+                                    <input id="birthDate" type="date" th:field="*{birthDate}" class="form-control"
+                                           name="birthDate">
+                                </div>
+
+
+                                <div class="form-group col-12">
+                                    <label for="age">Age</label>
+                                    <input id="age" type="text" th:field="*{age}" class="form-control" name="age">
+                                </div>
+
+
+                                <div class="form-group col-12">
+                                    <label for="gender">Gender</label>
+                                    <input id="gender" type="radio" th:field="*{gender}" class="form-control"
+                                           name="gender">
+                                    Male:<input id="genderm" type="radio" th:field="*{gender}" th:value="male"
+                                                class="form-control" name="gender">
+                                    Female:<input id="genderf" type="radio" th:field="*{gender}" th:value="female"
+                                                  class="form-control" name="gender">
+                                </div>
+
+
+                                <div class="form-group col-12">
+                                    <label for="address">Address</label>
+                                    <input id="address" type="text" th:field="*{address}" class="form-control"
+                                           name="address">
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="text" th:field="*{email}" class="form-control" name="email">
+                                </div>
+
+
+                                <div class="form-group col-12">
+                                    <label for="mobile">Mobile</label>
+                                    <input id="mobile" type="text" th:field="*{mobile}" class="form-control"
+                                           name="mobile">
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    User Registration
+                                </button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <a th:href="@{/}">Home</a>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+</div>
+
+</body>
+
+</html>
